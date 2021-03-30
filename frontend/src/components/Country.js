@@ -7,6 +7,7 @@ const Country=(props)=>{
 const [data,setData]=useState(props.data);
 const [details,setDetails]=useState([]);
 const [weather,showWeather]=useState(false);
+const [capital,setCapital]=useState(props.data)
 
 useEffect(()=>{
 let url=`https://restcountries.eu/rest/v2/name/${data}`;
@@ -37,13 +38,13 @@ const clickHandler=()=>{
                <div className="row">Latlng : {value.latlng}</div>
                <img src={value.flag} style={{height:"20%",width:"30%"}}/> 
                </div>
-               <button className="btn btn-success m-5" onClick={clickHandler}> Capital Weather </button>
+               <button className="btn btn-success m-5" onClick={clickHandler} > Capital Weather </button>
             
              
                </>
            )
        })}
-       {weather? <Weather/> :null}
+       {weather? <Weather country={props.data}/> :null}
         </div>
         </>
     )

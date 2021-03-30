@@ -6,8 +6,8 @@ const Weather=(props)=>{
 const [country,setCountry]=useState([]);
 
 useEffect(()=>{
-  //  let url;
-axios.get('http://api.weatherstack.com/current?access_key=922be7ef63a20dd3876bf9a7d8b4e1e5&query=USA').then((r)=>{
+   let url=`http://api.weatherstack.com/current?access_key=922be7ef63a20dd3876bf9a7d8b4e1e5&query=${props.country}`
+axios.get(url).then((r)=>{
     return r.data;
 }).then((r)=>{
     console.log(r.current);
